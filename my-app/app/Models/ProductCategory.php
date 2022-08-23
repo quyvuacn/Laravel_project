@@ -11,4 +11,13 @@ class ProductCategory extends Model
     protected $table = 'product_categories';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function products(){
+        /*Quan hệ 1-nhiều */
+        return $this->hasMany(Product::class,'product_category_id','id');
+
+
+    }
+
+
 }

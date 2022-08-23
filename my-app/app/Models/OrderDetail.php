@@ -11,4 +11,5 @@ class OrderDetail extends Model
     protected $table = 'order_details';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
 }

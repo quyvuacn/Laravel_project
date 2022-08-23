@@ -11,4 +11,8 @@ class ProductImage extends Model
     protected $table = 'product_images';
     protected $primaryKey = 'id';
     protected $guarded = [];
+/*belongto quan hệ 1-1*/
+    public function product(){
+        return $this->belongsTo(Product::class,'product_id','id');
+    }
 }

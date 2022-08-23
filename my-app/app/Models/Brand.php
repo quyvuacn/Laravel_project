@@ -11,4 +11,11 @@ class Brand extends Model
     protected $table = 'brands';
     protected $primaryKey = 'id';
     protected $guarded = [];
+
+    public function products(){
+        /*Quan hệ 1-nhiều */
+        return $this->hasMany(Product::class,'brand_id','id');
+
+
+    }
 }
