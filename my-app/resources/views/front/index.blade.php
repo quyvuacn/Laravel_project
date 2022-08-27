@@ -93,37 +93,7 @@
                 <div class="product-slider owl-carousel women">
 
                     @foreach($womenProducts as $womenProduct)
-                        <div class="product-item item {{$womenProduct->tag}}">
-                            <div class="pi-pic">
-                                <img src="front/img/products/{{$womenProduct->productImages[0]->path}}" alt="">
-                                @if($womenProduct->discount != null)
-                                    <div class="sale">Sale</div>
-                                @endif
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="shop/product/{{$womenProduct->id}}">+ Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">{{$womenProduct->tag}}</div>
-                                <a href="">
-                                    <h5>{{$womenProduct->name}}</h5>
-                                </a>
-                                <div class="product-price">
-                                    @if($womenProduct->discount)
-                                        ${{$womenProduct->discount}}
-                                    @else
-                                        ${{$womenProduct->price}}
-                                    @endif
-
-                                    <span>${{$womenProduct->price}}</span>
-                                </div>
-                            </div>
-                        </div>
+                        @include('front.components.product-item',['product'=>$womenProduct])
                     @endforeach
 
                 </div>
@@ -181,37 +151,7 @@
                 </div>
                 <div class="product-slider owl-carousel men">
                     @foreach($menProducts as $menProduct)
-                        <div class="product-item item {{$menProduct->tag}}">
-                            <div class="pi-pic">
-                                <img src="front/img/products/{{$menProduct->productImages[0]->path}}" alt="">
-                                @if($menProduct->discount != null)
-                                    <div class="sale">Sale</div>
-                                @endif
-                                <div class="icon">
-                                    <i class="icon_heart_alt"></i>
-                                </div>
-                                <ul>
-                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                    <li class="quick-view"><a href="shop/product/{{$menProduct->id}}">+ Quick View</a></li>
-                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="pi-text">
-                                <div class="catagory-name">{{$menProduct->tag}}</div>
-                                <a href="">
-                                    <h5>{{$menProduct->name}}</h5>
-                                </a>
-                                <div class="product-price">
-                                    @if($menProduct->discount)
-                                        ${{$menProduct->discount}}
-                                    @else
-                                        ${{$menProduct->price}}
-                                    @endif
-
-                                    <span>${{$menProduct->price}}</span>
-                                </div>
-                            </div>
-                        </div>
+                        @include('front.components.product-item',['product'=>$menProduct])
                     @endforeach
                 </div>
             </div>

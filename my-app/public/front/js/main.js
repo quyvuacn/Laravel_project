@@ -182,12 +182,15 @@
 		minamount = $("#minamount"),
 		maxamount = $("#maxamount"),
 		minPrice = rangeSlider.data('min'),
-		maxPrice = rangeSlider.data('max');
+		maxPrice = rangeSlider.data('max'),
+        minValue = rangeSlider.data('min-value') != '' ? rangeSlider.data('min-value') : minPrice,
+        maxValue = rangeSlider.data('max-value') != '' ? rangeSlider.data('max-value') : maxPrice
+
 	    rangeSlider.slider({
 		range: true,
 		min: minPrice,
         max: maxPrice,
-		values: [minPrice, maxPrice],
+		values: [minValue, maxValue],
 		slide: function (event, ui) {
 			minamount.val('$' + ui.values[0]);
 			maxamount.val('$' + ui.values[1]);
@@ -245,7 +248,28 @@
 			}
 		}
 		$button.parent().find('input').val(newVal);
+        //Update Cart
+        const $rowId = $button.parent().find('input').data('rowid');
+        updateCart($rowId,newVal);
+
 	});
+
+    function updateCart(rowId,qty){
+        $.ajax({
+            type :"GET",
+            url:"cart/update",
+            data:{
+                rowId,
+                qty
+            },
+            success:function (response){
+                location.reload()
+            },
+            error:function (err){
+                alert("update fail")
+            }
+        })
+    }
 
     /*-------------------
 		Product-filter Index

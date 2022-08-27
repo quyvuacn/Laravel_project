@@ -23,130 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1 produts-sidebar-filter">
-                <div class="filter-widget">
-                    <h4 class="fw-title">Categories</h4>
-                    <ul class="filter-catagories">
-                        <li><a href="">Men</a></li>
-                        <li><a href="">Women</a></li>
-                        <li><a href="">Kids</a></li>
-                    </ul>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Brand</h4>
-                    <div class="fw-brand-check">
-                        <div class="bc-item">
-                            <label for="bc-calvin">
-                                Calvin klein
-                                <input type="checkbox" id="bc-calvin">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="bc-item">
-                            <label for="bc-diesel">
-                                Diesel
-                                <input type="checkbox" id="bc-diesel">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="bc-item">
-                            <label for="bc-polo">
-                                Polo
-                                <input type="checkbox" id="bc-polo">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="bc-item">
-                            <label for="bc-toomy">
-                                Tommy Hifiger
-                                <input type="checkbox" id="bc-toomy">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Price</h4>
-                    <div class="filter-range-wrap">
-                        <div class="range-slider">
-                            <div class="price-input">
-                                <input type="text" id="minamount">
-                                <input type="text" id="maxamount">
-                            </div>
-                        </div>
-                        <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="33" data-max="98">
-                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                        </div>
-                    </div>
-                    <a href="#" class="filter-btn">Filter</a>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Color</h4>
-                    <div class="fw-color-choose">
-                        <div class="cs-item">
-                            <input type="radio" id="cs-black">
-                            <label class="cs-black" for="cs-black">black</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-violet">
-                            <label class="cs-violet" for="cs-violet">violet</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-blue">
-                            <label class="cs-blue" for="cs-blue">blue</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-yellow">
-                            <label class="cs-yellow" for="cs-yellow">yellow</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-red">
-                            <label class="cs-red" for="cs-red">red</label>
-                        </div>
-                        <div class="cs-item">
-                            <input type="radio" id="cs-green">
-                            <label class="cs-green" for="cs-green">green</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Size</h4>
-                    <div class="fw-size-choose">
-                        <div class="sc-item">
-                            <input type="radio" id="s-size">
-                            <label for="s-size">s</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="m-size">
-                            <label for="m-size">m</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="l-size">
-                            <label for="l-size">l</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="xs-size">
-                            <label for="xs-size">xs</label>
-                        </div>
-                        <div class="sc-item">
-                            <input type="radio" id="xxs-size">
-                            <label for="xxs-size">xxs</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="filter-widget">
-                    <h4 class="fw-title">Tags</h4>
-                    <div class="fw-tags">
-                        <a href="#">Towel</a>
-                        <a href="#">Shoes</a>
-                        <a href="#">Coat</a>
-                        <a href="#">Dresses</a>
-                        <a href="#">Trousers</a>
-                        <a href="#">Men's hats</a>
-                        <a href="#">Backpack</a>
-                    </div>
-                </div>
+                @include('front.shop.components.products-sidebar-filter')
             </div>
             <div class="col-lg-9 order-1 order-lg-2">
                 <div class="product-show-option">
@@ -155,18 +32,18 @@
                             <form action="">
                                 <div class="select-option">
                                     <select name="sort_by" class="sorting" onchange="this.form.submit()">
-                                        <option value="lastest">Sorting: Lastest</option>
-                                        <option value="oldest">Sorting: Oldest</option>
-                                        <option value="name-asc">Name: A-Z</option>
-                                        <option value="name-dsc">Name: Z-A</option>
-                                        <option value="price-asc">Price: Ascend</option>
-                                        <option value="price-dsc">Price: Decrease</option>
+                                        <option {{ request('sort_by') == 'latest' ? 'selected' : '' }} value="latest">Sorting: Latest</option>
+                                        <option {{ request('sort_by') == 'oldest' ? 'selected' : '' }} value="oldest">Sorting: Oldest</option>
+                                        <option {{ request('sort_by') == 'name-asc' ? 'selected' : '' }} value="name-asc">Name: A-Z</option>
+                                        <option {{ request('sort_by') == 'name-dsc' ? 'selected' : '' }} value="name-dsc">Name: Z-A</option>
+                                        <option {{ request('sort_by') == 'price-asc' ? 'selected' : '' }} value="price-asc">Price: Ascend</option>
+                                        <option {{ request('sort_by') == 'price-dsc' ? 'selected' : '' }} value="price-dsc">Price: Decrease</option>
                                     </select>
                                     <select name="show" class="p-show" onchange="this.form.submit()">
-                                        <option value="3">Show: 3</option>
-                                        <option value="6">Show: 6</option>
-                                        <option value="9">Show: 9</option>
-                                        <option value="15">Show: 15</option>
+                                        <option {{ request('sort_by') == '3' ? 'selected' : '' }} value="3">Show: 3</option>
+                                        <option {{ request('sort_by') == '6' ? 'selected' : '' }} value="6">Show: 6</option>
+                                        <option {{ request('sort_by') == '9' ? 'selected' : '' }} value="9">Show: 9</option>
+                                        <option {{ request('sort_by') == '15' ? 'selected' : '' }} value="15">Show: 15</option>
                                     </select>
                                 </div>
                             </form>
@@ -178,33 +55,7 @@
                     <div class="row">
                         @foreach($products as $product)
                             <div class="col-lg-4 col-sm-6">
-                                <div class="product-item">
-                                    <div class="pi-pic">
-                                        <img src="front/img/products/{{$product->productImages[0]->path}}" alt="">
-                                        @if($product->discount!=null)
-                                            <div class="sale pp-sale">Sale</div>
-                                        @endif
-
-                                        <div class="icon">
-                                            <i class="icon_heart_alt"></i>
-                                        </div>
-                                        <ul>
-                                            <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                            <li class="quick-view"><a href="shop/product/{{$product->id}}">+ Quick View</a></li>
-                                            <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pi-text">
-                                        <div class="catagory-name">{{$product->productCategory->name}}</div>
-                                        <a href="shop/product/{{$product->id}}">
-                                            <h5>{{$product->name}}</h5>
-                                        </a>
-                                        <div class="product-price">
-                                            ${{$product->discount}}
-                                            <span>${{$product->price}}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                @include('front.components.product-item',['product'=>$product])
                             </div>
                         @endforeach
 
@@ -220,37 +71,5 @@
 
 
 
-<!-- Partner Logo Section Begin -->
-<div class="partner-logo">
-    <div class="container">
-        <div class="logo-carousel owl-carousel">
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="front/img/logo-carousel/logo-1.png" >
-                </div>
-            </div>
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="front/img/logo-carousel/logo-2.png" >
-                </div>
-            </div>
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="front/img/logo-carousel/logo-3.png" >
-                </div>
-            </div>
-            <div class="logo-item">
-                <div class="tablecell-inner">
-                    <img src="front/img/logo-carousel/logo-4.png" >
-                </div>
-                <div class="logo-item">
-                    <div class="tablecell-inner">
-                        <img src="front/img/logo-carousel/logo-5.png" >
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End -->
+
 @endsection

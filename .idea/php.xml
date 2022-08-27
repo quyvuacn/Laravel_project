@@ -34,6 +34,7 @@
       <path value="$PROJECT_DIR$/my-app/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/my-app/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/my-app/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/my-app/vendor/bumbummen99/shoppingcart" />
       <path value="$PROJECT_DIR$/my-app/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/my-app/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/my-app/vendor/symfony/polyfill-php80" />
